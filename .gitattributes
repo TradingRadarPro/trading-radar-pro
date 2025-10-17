@@ -1,0 +1,31 @@
+# -------------------------------------------------------------------
+# 🔹 Padroniza EOL (end of line) para LF — evita conflitos em commits
+# -------------------------------------------------------------------
+* text=auto eol=lf
+
+# -------------------------------------------------------------------
+# 🔸 Tipos de arquivos de código — forçam sempre LF
+# -------------------------------------------------------------------
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# -------------------------------------------------------------------
+# 📝 Arquivos binários — não converte EOL
+# -------------------------------------------------------------------
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
