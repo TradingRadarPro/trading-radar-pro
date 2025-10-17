@@ -4,6 +4,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 First, run the development server:
 
+![CI](https://github.com/TradingRadarPro/trading-radar-pro/actions/workflows/ci.yml/badge.svg)
+
 ```bash
 npm run dev
 # or
