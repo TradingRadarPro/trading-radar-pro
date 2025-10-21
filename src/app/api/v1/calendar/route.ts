@@ -1,28 +1,14 @@
-type Event = {
-  id: string;
-  timeUtc: string;
-  impact: 'low' | 'medium' | 'high';
-  country: string;
-  title: string;
-};
+import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET() {
-  const now = new Date();
-  const mock: Event[] = [
-    {
-      id: '1',
-      timeUtc: new Date(now.getTime() + 60 * 60 * 1000).toISOString(),
-      impact: 'high',
-      country: 'US',
-      title: 'CPI (YoY)',
-    },
-    {
-      id: '2',
-      timeUtc: new Date(now.getTime() + 2 * 60 * 60 * 1000).toISOString(),
-      impact: 'medium',
-      country: 'EU',
-      title: 'ECB Presser',
-    },
-  ];
-  return Response.json({ events: mock, ts: now.toISOString() });
+  return NextResponse.json({
+    ok: true,
+    events: [
+      { id: 'cpi', title: 'US CPI', date: '2025-10-22', importance: 'high' },
+      { id: 'gdp', title: 'US GDP (QoQ)', date: '2025-10-25', importance: 'medium' },
+    ],
+    ts: new Date().toISOString(),
+  });
 }
