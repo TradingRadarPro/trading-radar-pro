@@ -2,21 +2,18 @@ name: CI
 
 on:
   push:
-    branches: [main, develop, '**'] # garante qualquer branch
+    branches: [main, develop, '**']
   pull_request:
     branches: ['**']
-  workflow_dispatch: # permite rodar manualmente pelo Actions
-
-# Evita pipelines paralelos batendo no mesmo branch
-concurrency:
-  group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  workflow_dispatch:
 
 jobs:
   ci:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
+
+    env:
+      NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+      NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
 
     steps:
       - name: Checkout
@@ -43,5 +40,4 @@ jobs:
         run: pnpm typecheck
 
       - name: Build
-        # No build envs for agora; se precisar, adicione env: abaixo
         run: pnpm build
