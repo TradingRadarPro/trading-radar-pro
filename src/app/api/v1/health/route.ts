@@ -1,3 +1,11 @@
+import { NextResponse } from 'next/server';
+
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
-  return Response.json({ ok: true, ts: new Date().toISOString() });
+  return NextResponse.json({
+    ok: true,
+    service: 'api',
+    ts: new Date().toISOString(),
+  });
 }

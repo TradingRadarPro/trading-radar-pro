@@ -1,3 +1,4 @@
+import '@/lib/env'; // força a validação das ENVs no boot
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
